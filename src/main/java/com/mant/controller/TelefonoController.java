@@ -29,11 +29,12 @@ public class TelefonoController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addingTelefono(@ModelAttribute("telefono") Telefono telefono, Model model) {
+	public String addingTelefono(@ModelAttribute("telefono") Telefono telefono,
+			Model model) {
 		int id = telefonoService.addTelefono(telefono);
 		String message = "Telefono fue agregado satisfactoriamente.";
-	
-		if(id == 0){
+
+		if (id == 0) {
 			message = "No se almaceno la información";
 		}
 		model.addAttribute("message", message);
@@ -41,7 +42,7 @@ public class TelefonoController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/list", method= RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String listOfTelefonos(Model model) {
 
 		List<Telefono> telefonos = telefonoService.getTelefonos();
@@ -51,25 +52,22 @@ public class TelefonoController {
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-	public ModelAndView editTeamPage(@PathVariable Integer id) {
-		ModelAndView modelAndView = new ModelAndView("edit-team-form");
+	public String editTelefonoPage(@PathVariable Integer id, Model model) {
+
 		Telefono telefono = telefonoService.getTelefono(id);
-		modelAndView.addObject("telefono", telefono);
-		return modelAndView;
+		model.addAttribute("telefono", telefono);
+		return "edit-telefono-form";
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView edditingTeam(@ModelAttribute Telefono telefono,
+	public String edditingTelefono(@ModelAttribute Telefono telefono,
 			@PathVariable Integer id) {
 
-		ModelAndView modelAndView = new ModelAndView("home");
-
 		telefonoService.updateTelefono(telefono);
+		// String message = "Telefono fue editado con exito!.";
+		// model.addAttribute("message", message);
 
-		String message = "Telefono fue editado con exito!.";
-		modelAndView.addObject("message", message);
-
-		return modelAndView;
+		return "home";
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

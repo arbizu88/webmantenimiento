@@ -63,15 +63,14 @@ public class TelefonoController {
 	public String edditingTelefono(@ModelAttribute Telefono telefono,
 			@PathVariable Integer id) {
 
+		telefono.setIdtelefono(id);
 		telefonoService.updateTelefono(telefono);
-		// String message = "Telefono fue editado con exito!.";
-		// model.addAttribute("message", message);
 
 		return "home";
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-	public ModelAndView deleteTeam(@PathVariable Integer id) {
+	public ModelAndView deleteTelefono(@PathVariable Integer id) {
 		ModelAndView modelAndView = new ModelAndView("home");
 		telefonoService.deleteTelefono(id);
 		String message = "Telefono fue eliminado con exito!.";

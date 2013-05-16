@@ -15,7 +15,7 @@
 <p>Aqui se puede visualizar el mantenimiento.</p>
 <table border="1px" cellpadding="0" cellspacing="0" >
 <thead>
-<tr>
+<tr bgcolor="#0F9DDA">
 <th width="10%">idtelefono</th><th width="15%">modelo</th><th width="10%">precio</th><th width="10%">accion</th>
 </tr>
 </thead>

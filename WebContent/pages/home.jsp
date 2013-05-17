@@ -8,12 +8,13 @@
 <title>Home page</title>
 </head>
 <body>
-	<h1>Inicio (Home)</h1>
-
-	<a href="/webmantenimiento/telefono/add">Agregar Telefono</a>
-	<br />
-	<a href="/webmantenimiento/telefono/list">Ver telefono</a>
-	<br />
-<h2>${message}</h2>
+	<div style="padding-left: 50px; font-family: Verdana;">
+		<h2>Inicio (Home)</h2>
+		<a href="/webmantenimiento/telefono/add">Agregar Telefono</a>
+		<br/>
+		<br/>
+		<a href="/webmantenimiento/telefono/list">Ver telefono</a> <br />
+		<h2>${message}</h2>
+	</div>
 </body>
 </html>
